@@ -8,9 +8,8 @@ interface Props {
   params: { symbol: string };
 }
 
-export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
-  const symbol = params.symbol;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const {symbol} = await params;
 
   try {
     const res = await fetch(
@@ -38,8 +37,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 }
 
-export default async function StockDetails(props: Props) {
-  const { symbol } = await props.params;
+export default async function StockDetails({ params }: Props) {
+  const { symbol } = await params;
   let stock: StockSearchResult | null = null;
   let prices: StockPrice[] = [];
   const error: string | null = null;
