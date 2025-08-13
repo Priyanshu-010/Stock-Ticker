@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📈 Stock Ticker Application
 
-## Getting Started
+A **Next.js** application that allows users to search for stocks, view detailed information, and visualize stock price data over time.  
+Developed as part of the **TradeBrains Web Developer Assessment**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Stock Search with Autocomplete**  
+  Search for stocks using the provided API with instant suggestions as you type.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Dynamic Stock Details Page**  
+  Displays:
+  - Stock name & symbol
+  - Latest price graph (30-day daily data)
+  - Proper **SEO meta tags** for improved search indexing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Interactive Stock Graph**  
+  Uses **Recharts** to display stock price history.
 
-## Learn More
+- **Favorites Management**  
+  Save your favorite stocks to **localStorage** and access them quickly.
 
-To learn more about Next.js, take a look at the following resources:
+- **Error Handling**  
+  User-friendly error messages when stock data is unavailable.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📷 Screenshots
 
-## Deploy on Vercel
+### Home Page with Search
+![Search Screenshot](./assets/search.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Stock Details Page
+![Details Screenshot](./assets/details.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Favorite Stocks Page
+![Favorites Screenshot](./assets/favorites.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: [Next.js](https://nextjs.org/) (React)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Data Fetching**: Next.js server components with `fetch`
+- **API**: TradeBrains Stock APIs
+
+---
+
+## 🔌 APIs Used
+
+- **Search API**  
+
+GET /api/assignment/search?keyword={KEYWORD}&length=10
+
+- **Stock Prices API**
+
+GET /api/assignment/stock/{SYMBOL}/prices?days=30&type=DAILY&limit=100&format=json
+
+---
+
+## ⚙️ Installation & Running Locally
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Priyanshu-010/Stock-Ticker
+   cd stock-ticker-app
+
+2. **Install dependencies**
+   npm install
+
+3. **Run the development server**
+   npm run dev
+
+4.  **Open in browser**
+   http://localhost:3000
+   
+
+---
+
+📌 Additional Notes
+
+The app is fully responsive and works across devices.
+
+Data is fetched in real-time with cache: "no-store" to ensure freshness.
+
+Favorite stocks are stored locally; clearing browser storage will remove them.
+
+---
+
+## ✍️ Author
+
+**Priyanshu Rai**
+
+📧 Email: priyanshurai2772@gmail.com  
+🔗 LinkedIn: https://www.linkedin.com/in/priyanshuraidev/  
+💻 GitHub: https://github.com/Priyanshu-010
+
