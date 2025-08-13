@@ -90,19 +90,23 @@ export default async function StockDetails(props: Props) {
 
   return (
     <div>
-      <div className="p-4 bg-gray-900 min-h-screen">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-white">
-            {stock.company} ({stock.symbol})
-          </h1>
-          <FavoriteButton symbol={stock.symbol} company={stock.company} />
+      {stock ? (
+        <div className="p-4 bg-gray-900 min-h-screen">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-2xl font-bold text-white">
+              {stock.company} ({stock.symbol})
+            </h1>
+            <FavoriteButton symbol={stock.symbol} company={stock.company} />
+          </div>
+          {prices.length > 0 ? (
+            <StockGraph data={prices} />
+          ) : (
+            <p className="text-gray-400">No price data available</p>
+          )}
         </div>
-        {prices.length > 0 ? (
-          <StockGraph data={prices} />
-        ) : (
-          <p className="text-gray-400">No price data available</p>
-        )}
-      </div>
+      ) : (
+        <p>No stock found for symbol: {symbol}</p>
+      )}
     </div>
   );
 }
